@@ -1,7 +1,14 @@
 {
   "name": "shopping-app",
   "version": "0.0.0",
-  "keywords": ["angula", "bulma", "css", "javascript", "html", "universal"],
+  "keywords": [
+    "angular",
+    "bulma",
+    "css",
+    "javascript",
+    "html",
+    "universal"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +31,7 @@
     "bulma": "^0.8.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "serialize-javascript": "^3.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
