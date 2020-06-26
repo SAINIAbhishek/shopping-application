@@ -8,6 +8,7 @@ import {RecipeService} from "../../../services/recipe.service";
   templateUrl: './recipe-edit.component.html',
   styleUrls: ['./recipe-edit.component.scss']
 })
+
 export class RecipeEditComponent implements OnInit {
 
   id: number;
@@ -95,6 +96,10 @@ export class RecipeEditComponent implements OnInit {
       'ingredients': recipeIngredients
     });
 
+  }
+
+  get controls() {
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
 }
