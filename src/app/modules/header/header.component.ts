@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {RecipesDataService} from "../../services/recipes-data.service";
 
 @Component({
   selector: 'header',
@@ -7,5 +8,15 @@ import {Component} from '@angular/core';
 })
 
 export class HeaderComponent {
+
+  constructor(private _recipesDataService: RecipesDataService) { }
+
+  public onSave() {
+    this._recipesDataService.save();
+  }
+
+  public onFetch() {
+    this._recipesDataService.getAll().subscribe();
+  }
 
 }

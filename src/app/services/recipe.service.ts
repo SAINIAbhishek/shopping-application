@@ -9,8 +9,6 @@ export class RecipeService {
 
 	recipesChanged = new Subject<Recipe[]>();
 
-	constructor(private slService: ShoppingListService) {}
-
 	private recipes: Recipe[] = [
 		new Recipe(
 			'Tasty Schnitzel',
@@ -25,6 +23,13 @@ export class RecipeService {
 		)
 	];
 
+	constructor(private _shoppingListService: ShoppingListService) { }
+
+	public setRecipes(recipes: Array<Recipe>) {
+		this.recipes = recipes;
+		this.recipesChanged.next(this.recipes.slice());
+	}
+
 	getRecipes() {
 		return this.recipes.slice();
 	}
@@ -34,7 +39,7 @@ export class RecipeService {
 	}
 
 	addIngredientsToShoppingList(ingredients: Ingredient[]) {
-		this.slService.addIngredients(ingredients);
+		this._shoppingListService.addIngredients(ingredients);
 	}
 
 	addRecipe(recipe: Recipe) {
