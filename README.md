@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About
 
-An angular framework based application that demonstrate the functionalities of the same. This project has been done under the course 'Angular - The Complete Guide' on the udemy.
+An angular framework based application that demonstrate the functionalities of the same. This project has been done under the course 'Angular - The Complete Guide' on the udemy. It uses the Firebase Realtime Database.
 
 ## Development server
 
