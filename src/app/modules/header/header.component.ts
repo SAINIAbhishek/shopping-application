@@ -9,6 +9,8 @@ import {RecipesDataService} from "../../services/recipes-data.service";
 
 export class HeaderComponent {
 
+  isAuthenticated = false;
+
   constructor(private _recipesDataService: RecipesDataService) { }
 
   public onSave() {
