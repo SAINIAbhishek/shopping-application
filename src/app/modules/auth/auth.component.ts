@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AuthResponseData, AuthService} from "../../services/auth.service";
+import {AuthService} from "../../services/auth.service";
 import {Observable} from "rxjs";
+import {AuthResponseData} from "../../models/auth-response.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'auth',
@@ -17,7 +19,8 @@ export class AuthComponent implements OnInit {
 
   error: string = null;
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService,
+              private _router: Router) { }
 
   ngOnInit() {
   }
@@ -40,13 +43,14 @@ export class AuthComponent implements OnInit {
     let authObs: Observable<AuthResponseData>;
 
     if (this.isLoginMode) {
+      authObs = this._authService.login(email, password);
     } else {
       authObs = this._authService.signup(email, password);
     }
 
     authObs.subscribe(resData => {
-      console.log(resData);
       this.isLoading = false;
+      this._router.navigate(['/recipes']);
       }, errorMessage => {
       console.error(errorMessage);
       this.error = errorMessage;

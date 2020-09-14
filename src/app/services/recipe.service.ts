@@ -10,7 +10,7 @@ export class RecipeService {
 	recipesChanged = new Subject<Recipe[]>();
 
 	private recipes: Recipe[] = [
-		new Recipe(
+		/*new Recipe(
 			'Tasty Schnitzel',
 			'A super-tasty Schnitzel - just awesome!',
 			'https://www.evopedia.net/wp-content/uploads/2018/06/1280px-Wiener-Schnitzel02.jpg',
@@ -20,7 +20,7 @@ export class RecipeService {
 			'What else you need to say?',
 			'https://storage.needpix.com/rsynced_images/burger-2762431_1280.jpg',
 			[new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
-		)
+		)*/
 	];
 
 	constructor(private _shoppingListService: ShoppingListService) { }
