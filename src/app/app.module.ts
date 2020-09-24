@@ -6,19 +6,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/header/header.component';
-import { ShoppingListComponent } from './modules/shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './modules/shopping-list/shopping-edit/shopping-edit.component';
 import { AuthComponent } from './modules/auth/auth.component';
 import { LoadingSpinnerComponent } from './modules/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { RecipesModule } from "./modules/recipes/recipes.module";
+import { ShoppingListModule } from "./modules/shopping-list/shopping-list.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     AuthComponent,
     LoadingSpinnerComponent
   ],
@@ -28,7 +25,8 @@ import { RecipesModule } from "./modules/recipes/recipes.module";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule
+    RecipesModule,
+    ShoppingListModule
   ],
   providers: [
     {

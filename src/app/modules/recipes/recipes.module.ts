@@ -27,14 +27,6 @@ import {DropdownModule} from "../../directives/dropdown/dropdown.module";
 		RecipeItemComponent,
 		RecipeStartComponent,
 		RecipeEditComponent
-	],
-	exports: [
-		RecipesComponent,
-		RecipeListComponent,
-		RecipeDetailComponent,
-		RecipeItemComponent,
-		RecipeStartComponent,
-		RecipeEditComponent
 	]
 })
 
