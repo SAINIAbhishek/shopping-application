@@ -5,19 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './modules/header/header.component';
-import { AuthComponent } from './modules/auth/auth.component';
-import { LoadingSpinnerComponent } from './modules/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { RecipesModule } from "./modules/recipes/recipes.module";
 import { ShoppingListModule } from "./modules/shopping-list/shopping-list.module";
+import { LoadingSpinnerModule } from "./modules/loading-spinner/loading-spinner.module";
+import { AuthModule } from "./modules/auth/auth.module";
+import { HeaderModule } from "./modules/header/header.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    AuthComponent,
-    LoadingSpinnerComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +23,10 @@ import { ShoppingListModule } from "./modules/shopping-list/shopping-list.module
     AppRoutingModule,
     HttpClientModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    LoadingSpinnerModule,
+    AuthModule,
+    HeaderModule
   ],
   providers: [
     {
