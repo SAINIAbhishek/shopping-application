@@ -12,7 +12,7 @@ import {ShoppingEditComponent} from "./shopping-edit/shopping-edit.component";
 		RouterModule,
 		FormsModule,
 		RouterModule.forChild([
-			{ path: 'shopping-list', component: ShoppingListComponent }
+			{ path: '', component: ShoppingListComponent }
 		])
 	],
 	declarations: [

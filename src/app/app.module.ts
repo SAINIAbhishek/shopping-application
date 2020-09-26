@@ -6,8 +6,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
-import { RecipesModule } from "./modules/recipes/recipes.module";
-import { ShoppingListModule } from "./modules/shopping-list/shopping-list.module";
 import { LoadingSpinnerModule } from "./modules/loading-spinner/loading-spinner.module";
 import { AuthModule } from "./modules/auth/auth.module";
 import { HeaderModule } from "./modules/header/header.module";
@@ -22,8 +20,6 @@ import { HeaderModule } from "./modules/header/header.module";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule,
-    ShoppingListModule,
     LoadingSpinnerModule,
     AuthModule,
     HeaderModule
