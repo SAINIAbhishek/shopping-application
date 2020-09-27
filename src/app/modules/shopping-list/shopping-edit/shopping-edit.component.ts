@@ -14,52 +14,56 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   @ViewChild('f') slForm: NgForm;
 
-  subscription: Subscription;
+  private _subscription: Subscription;
 
-  editMode = false;
+  private _editMode = false;
 
-  editedItemIndex: number;
+  private _editedItemIndex: number;
 
-  editedItem: Ingredient;
+  private _editedItem: Ingredient;
 
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-    this.subscription = this.slService.startedEditing.subscribe((index: number) => {
-      this.editedItemIndex = index;
-      this.editMode = true;
-      this.editedItem = this.slService.getIngredient(index);
+    this._subscription = this.slService.startedEditing.subscribe((index: number) => {
+      this._editedItemIndex = index;
+      this._editMode = true;
+      this._editedItem = this.slService.getIngredient(index);
       this.slForm.setValue({
-        name: this.editedItem.name,
-        amount: this.editedItem.amount
+        name: this._editedItem.name,
+        amount: this._editedItem.amount
       })
     });
   }
 
-  onSubmit(form: NgForm) {
+  public onSubmit(form: NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
-    if (this.editMode) {
-      this.slService.updateIngredient(this.editedItemIndex, newIngredient);
+    if (this._editMode) {
+      this.slService.updateIngredient(this._editedItemIndex, newIngredient);
     } else {
       this.slService.addIngredient(newIngredient);
     }
-    this.editMode = false;
+    this._editMode = false;
     form.reset();
   }
 
-  onClear() {
+  public onClear() {
     this.slForm.reset();
-    this.editMode = false;
+    this._editMode = false;
   }
 
-  onDelete() {
-    this.slService.deleteIngredient(this.editedItemIndex);
+  public onDelete() {
+    this.slService.deleteIngredient(this._editedItemIndex);
     this.onClear();
   }
 
+  get editMode(): boolean {
+    return this._editMode;
+  }
+
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this._subscription.unsubscribe();
   }
 
 }

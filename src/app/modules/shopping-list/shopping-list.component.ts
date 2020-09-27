@@ -11,25 +11,29 @@ import {Subscription} from "rxjs";
 
 export class ShoppingListComponent implements OnInit, OnDestroy {
 
-  ingredients: Ingredient[] = [];
+  private _ingredients: Ingredient[] = [];
 
-  subscription: Subscription;
+  private _subscription: Subscription;
 
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-    this.ingredients = this.slService.getIngredients();
-    this.subscription = this.slService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
-      this.ingredients = ingredients;
+    this._ingredients = this.slService.getIngredients();
+    this._subscription = this.slService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
+      this._ingredients = ingredients;
     });
   }
 
-  onEditItem(index: number) {
+  public onEditItem(index: number) {
     this.slService.startedEditing.next(index);
   }
 
+  get ingredients(): Ingredient[] {
+    return this._ingredients;
+  }
+
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this._subscription.unsubscribe();
   }
 
 }

@@ -11,16 +11,16 @@ import {AuthService} from "../../services/auth.service";
 
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  isAuthenticated = false;
+  private _isAuthenticated = false;
 
-  userSub: Subscription;
+  private _userSub: Subscription;
 
   constructor(private _recipesDataService: RecipesDataService,
               private _authService: AuthService) { }
 
   ngOnInit() {
-    this.userSub = this._authService.user.subscribe(user => {
-      this.isAuthenticated = !!user;
+    this._userSub = this._authService.user.subscribe(user => {
+      this._isAuthenticated = !!user;
     });
   }
 
@@ -36,8 +36,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this._authService.logout();
   }
 
+  get isAuthenticated(): boolean {
+    return this._isAuthenticated;
+  }
+
   ngOnDestroy() {
-    this.userSub.unsubscribe();
+    this._userSub.unsubscribe();
   }
 
 }
