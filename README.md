@@ -1,14 +1,17 @@
 # Shopping Application
 
+An angular framework based application that demonstrate the functionalities of the same. This project has been done under the course 'Angular - The Complete Guide' on the udemy. It uses the Firebase Realtime Database.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+
+## Default user details
+email: test@test.com
+<br>
+password: test12345
 
 ## Topics
 - Bootstrap
 - NgRx
-
-## About
-
-An angular framework based application that demonstrate the functionalities of the same. This project has been done under the course 'Angular - The Complete Guide' on the udemy. It uses the Firebase Realtime Database.
 
 ## Development server
 
