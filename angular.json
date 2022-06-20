@@ -5,6 +5,7 @@
   "projects": {
     "shopping-app": {
       "root": "",
+      "prefix": "app",
       "sourceRoot": "src",
       "projectType": "application",
       "schematics": {
