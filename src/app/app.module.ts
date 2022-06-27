@@ -14,6 +14,8 @@ import * as fromApp from './store/app.reducer';
 import {AuthEffects} from './modules/auth/store/auth.effects';
 import {EffectsModule} from '@ngrx/effects';
 import {AlertComponent} from './modules/alert/alert.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import {AlertComponent} from './modules/alert/alert.component';
   imports: [
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
