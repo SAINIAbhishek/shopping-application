@@ -5,19 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { LoadingSpinnerModule } from './modules/loading-spinner/loading-spinner.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HeaderModule } from './modules/header/header.module';
 import {StoreModule} from '@ngrx/store';
 import * as fromApp from './store/app.reducer';
+import {AuthEffects} from './modules/auth/store/auth.effects';
+import {EffectsModule} from '@ngrx/effects';
+import {AlertComponent} from './modules/alert/alert.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent
   ],
   imports: [
     StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects]),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
