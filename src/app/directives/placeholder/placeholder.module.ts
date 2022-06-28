@@ -1,18 +1,18 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {DropdownDirective} from './dropdown.directive';
+import {PlaceholderDirective} from './placeholder.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    DropdownDirective
+    PlaceholderDirective
   ],
   exports: [
-    DropdownDirective
+    PlaceholderDirective
   ]
 })
 
-export class DropdownModule {}
+export class PlaceholderModule {}

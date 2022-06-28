@@ -1,10 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RecipesDataService} from "../../services/recipes-data.service";
-import {Subscription} from "rxjs";
-import {AuthService} from "../../services/auth.service";
+import {Subscription} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../models/state';
+import {map} from 'rxjs/operators';
+import * as AuthActions from '../auth/store/auth.actions';
+import * as RecipeActions from '../recipes/store/recipe.actions';
 
 @Component({
-  selector: 'header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -15,25 +18,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private _userSub: Subscription;
 
-  constructor(private _recipesDataService: RecipesDataService,
-              private _authService: AuthService) { }
+  constructor(private _store: Store<AppState>) { }
 
   ngOnInit() {
-    this._userSub = this._authService.user.subscribe(user => {
-      this._isAuthenticated = !!user;
-    });
+    this._userSub = this._store.select('auth')
+      .pipe(map(authState => authState.user))
+      .subscribe(user => {
+        this._isAuthenticated = !!user;
+      });
   }
 
   public onSave() {
-    this._recipesDataService.save();
+    this._store.dispatch(new RecipeActions.StoreRecipes());
   }
 
   public onFetch() {
-    this._recipesDataService.getAll().subscribe();
+    this._store.dispatch(new RecipeActions.FetchRecipes());
   }
 
   public onLogout() {
-    this._authService.logout();
+    this._store.dispatch(new AuthActions.Logout());
   }
 
   get isAuthenticated(): boolean {

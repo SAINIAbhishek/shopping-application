@@ -5,6 +5,7 @@
   "projects": {
     "shopping-app": {
       "root": "",
+      "prefix": "app",
       "sourceRoot": "src",
       "projectType": "application",
       "schematics": {
@@ -37,6 +38,7 @@
           "options": {
             "outputPath": "dist/shopping-app",
             "index": "src/index.html",
+            "baseHref": "/shopping/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
