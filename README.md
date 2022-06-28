@@ -4,14 +4,9 @@ An angular framework based application that demonstrate the functionalities of t
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
-## Default user details
-email: test@test.com
-<br>
-password: test12345
-
 ## Topics
 - Bootstrap
-- NgRx
+- NgRx (https://ngrx.io/) (https://github.com/ngrx/platform/tree/master/projects)
 
 ## Development server
 

@@ -1,24 +1,24 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
-import {ShoppingListComponent} from "./shopping-list.component";
-import {ShoppingEditComponent} from "./shopping-edit/shopping-edit.component";
+import {ShoppingListComponent} from './shopping-list.component';
+import {ShoppingEditComponent} from './shopping-edit/shopping-edit.component';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		RouterModule,
-		FormsModule,
-		RouterModule.forChild([
-			{ path: '', component: ShoppingListComponent }
-		])
-	],
-	declarations: [
-		ShoppingListComponent,
-		ShoppingEditComponent
-	]
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    RouterModule.forChild([
+      { path: '', component: ShoppingListComponent }
+    ])
+  ],
+  declarations: [
+    ShoppingListComponent,
+    ShoppingEditComponent
+  ]
 })
 
 export class ShoppingListModule {}

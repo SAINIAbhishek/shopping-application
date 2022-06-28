@@ -1,5 +1,10 @@
 import {Ingredient} from './ingredient.model';
 import {User} from './user.model';
+import {Recipe} from './recipe.model';
+
+export interface RecipeState {
+  recipes: Recipe[];
+}
 
 export interface ShoppingListState {
   ingredients: Ingredient[];
@@ -15,5 +20,6 @@ export interface AuthState {
 
 export interface AppState {
   shoppingList: ShoppingListState;
+  recipes: RecipeState;
   auth: AuthState;
 }
