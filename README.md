@@ -8,6 +8,7 @@ An angular framework based application that demonstrate the functionalities of t
 
 ## Topics
 - Bootstrap
+- Authentication (in the environment file replace the `firebaseApiKey` with your own to run it locally)
 - NgRx (https://ngrx.io/) (https://github.com/ngrx/platform/tree/master/projects)
 
 ## Development server

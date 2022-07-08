@@ -56,7 +56,7 @@ export class AuthEffects {
       return this.http
         .post<AuthResponseData>(
           'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' +
-            environment.apiKey,
+            environment.firebaseApiKey,
           {
             email: signupAction.payload.email,
             password: signupAction.payload.password,
@@ -89,7 +89,7 @@ export class AuthEffects {
       return this.http
         .post<AuthResponseData>(
           'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' +
-            environment.apiKey,
+            environment.firebaseApiKey,
           {
             email: authData.payload.email,
             password: authData.payload.password,
