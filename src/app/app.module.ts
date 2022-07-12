@@ -18,6 +18,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {ToastrModule} from 'ngx-toastr';
+import {RecipeEffects} from './modules/recipes/store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {ToastrModule} from 'ngx-toastr';
   ],
   imports: [
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, RecipeEffects]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
     BrowserModule,

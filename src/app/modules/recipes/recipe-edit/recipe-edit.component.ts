@@ -40,8 +40,8 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     if (this._editMode) {
       this.store.dispatch(
         new RecipesActions.UpdateRecipe({
-          index: this.id,
-          newRecipe: this.recipeForm.value
+          index: this._id,
+          newRecipe: this._recipeForm.value
         })
       );
     } else {
