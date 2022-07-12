@@ -3,6 +3,20 @@
   position: relative;
   width: 64px;
   height: 64px;
+
+  &.auth {
+    width: 28px;
+    height: 26px;
+
+    div {
+      width: 18px;
+      height: 18px;
+      border: 2px solid white;
+      border-color: white transparent transparent transparent;
+    }
+
+  }
+
 }
 
 .lds-ring div {
@@ -13,6 +27,7 @@
   height: 51px;
   margin: 6px;
   border-radius: 50%;
+  border: 6px solid #133b5c;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #133b5c transparent transparent transparent;
 }

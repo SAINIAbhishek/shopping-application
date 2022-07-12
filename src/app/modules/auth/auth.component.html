@@ -1,16 +1,14 @@
 <ng-template appPlaceholder></ng-template>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
+  <div class="auth__wrapper">
 
-    <div *ngIf="isLoading" style="text-align: center;">
-      <loading-spinner></loading-spinner>
-    </div>
+    <div><img src="./assets/images/img-01.webp" alt="IMG"></div>
 
-    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="auth__form">
+      <span class="auth__form-title">Member {{ !isLoginMode ? 'Sign up' : 'Login' }}</span>
 
-      <div class="form-group">
-        <label for="email">E-mail Address</label>
+      <div class="auth__form-input">
         <input
           class="form-control"
           email
@@ -18,11 +16,12 @@
           name="email"
           ngModel
           required
-          type="email"/>
+          placeholder="Email Address"
+          type="email">
+        <span class="symbol-input"><i class="fa fa-envelope" aria-hidden="true"></i></span>
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
+      <div class="auth__form-input">
         <input
           class="form-control"
           id="password"
@@ -30,29 +29,26 @@
           name="password"
           ngModel
           required
-          type="password"/>
+          placeholder="**********"
+          type="password">
+        <span class="symbol-input"><i class="fa fa-lock" aria-hidden="true"></i></span>
       </div>
 
-      <div>
-
-        <button
-          [disabled]="authForm.invalid"
-          class="btn btn-primary"
-          type="submit">
-          {{ isLoginMode ? 'Login' : 'Sign Up' }}
+      <div class="auth__btn-wrapper">
+        <button [disabled]="authForm.invalid" type="submit">
+          {{ !isLoginMode ? 'Sign up' : 'Login' }}
+          <app-loading-spinner *ngIf="isLoading" [auth]="true"></app-loading-spinner>
         </button>
+      </div>
 
-        |
-
-        <button
-          (click)="onSwitchMode()"
-          class="btn btn-primary"
-          type="button">
+      <div class="text-center" style="padding-top: 40px;">
+        <a (click)="onSwitchMode()" class="switch__mode">
           Switch to {{ isLoginMode ? 'Sign up' : 'Login' }}
-        </button>
-
+          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
       </div>
 
     </form>
+
   </div>
 </div>

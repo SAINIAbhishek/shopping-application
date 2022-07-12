@@ -26,21 +26,19 @@ export class AuthComponent implements OnInit, OnDestroy {
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
 
   constructor(private _store: Store<AppState>,
-              private componentFactoryResolver: ComponentFactoryResolver) { }
+              private _componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this._storeSub = this._store.select('auth').subscribe(authState => {
       this._isLoading = authState.loading;
       if (!!authState.authError) {
-        this.showErrorAlert(authState.authError);
+        this._showErrorAlert(authState.authError);
       }
     });
   }
 
-  private showErrorAlert(message: string) {
-    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
-      AlertComponent
-    );
+  private _showErrorAlert(message: string) {
+    const alertCmpFactory = this._componentFactoryResolver.resolveComponentFactory(AlertComponent);
     const hostViewContainerRef = this.alertHost.viewContainerRef;
     hostViewContainerRef.clear();
 

@@ -1,34 +1,32 @@
-<nav class="navbar navbar-default">
+<nav class="navbar">
   <div class="container-fluid">
 
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Recipe Book</a>
+      <span class="navbar-brand"><i class="fas fa-book"></i> Recipe Book</span>
     </div>
 
     <div class="collapse navbar-collapse">
+
       <ul class="nav navbar-nav">
-        <li *ngIf="isAuthenticated" routerLinkActive="active">
-          <a routerLink="/recipes">Recipes</a>
-        </li>
-        <li routerLinkActive="active" *ngIf="!isAuthenticated">
-          <a routerLink="/auth">Authenticate</a>
+        <li routerLinkActive="active">
+          <a (click)="navigateTo('/recipes', $event)" routerLink="/recipes">Recipes</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/shopping-list">Shopping List</a>
+          <a (click)="navigateTo('/shopping-list', $event)" routerLink="/shopping-list">Shopping List</a>
         </li>
       </ul>
-      <ul *ngIf="isAuthenticated" class="nav navbar-nav navbar-right">
-        <li>
-          <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
-        </li>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="isAuthenticated"><a style="cursor: pointer;" (click)="onLogout()">Logout</a></li>
         <li class="dropdown" appDropdown>
-          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <a style="cursor: default;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a (click)="onSave()" style="cursor: not-allowed;">Save Data</a></li>
-            <li><a (click)="onFetch()" style="cursor: pointer;">Fetch Data</a></li>
+            <li><a (click)="onSave()">Save Data</a></li>
+            <li><a (click)="onFetch()">Fetch Data</a></li>
           </ul>
         </li>
       </ul>
+
     </div>
 
   </div>

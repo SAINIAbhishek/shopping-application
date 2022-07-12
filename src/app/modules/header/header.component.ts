@@ -5,6 +5,8 @@ import {AppState} from '../../models/state';
 import {map} from 'rxjs/operators';
 import * as AuthActions from '../auth/store/auth.actions';
 import * as RecipeActions from '../recipes/store/recipe.actions';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private _userSub: Subscription;
 
-  constructor(private _store: Store<AppState>) { }
+  constructor(private _store: Store<AppState>,
+              private _toastrService: ToastrService,
+              private _router: Router) { }
 
   ngOnInit() {
     this._userSub = this._store.select('auth')
@@ -29,15 +33,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public onSave() {
-    this._store.dispatch(new RecipeActions.StoreRecipes());
+    if (this._isAuthenticated) {
+      this._store.dispatch(new RecipeActions.StoreRecipes());
+    } else {
+      this._toastrService.error('You need to login to Save data.', 'Error');
+    }
   }
 
   public onFetch() {
-    this._store.dispatch(new RecipeActions.FetchRecipes());
+    if (this._isAuthenticated) {
+      this._store.dispatch(new RecipeActions.FetchRecipes());
+    } else {
+      this._toastrService.error('You need to login to Fetch data.', 'Error');
+    }
   }
 
   public onLogout() {
     this._store.dispatch(new AuthActions.Logout());
+  }
+
+  public navigateTo(url: string, event: Event): void {
+    event.preventDefault();
+
+    if (this._isAuthenticated) {
+      this._router.navigate([url]).then();
+    } else {
+      this._toastrService.error('You need to login.', 'Error');
+    }
   }
 
   get isAuthenticated(): boolean {
