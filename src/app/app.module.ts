@@ -17,6 +17,7 @@ import {AlertComponent} from './modules/alert/alert.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,12 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
     HttpClientModule,
     LoadingSpinnerModule,
     AuthModule,
-    HeaderModule
+    HeaderModule,
+    ToastrModule.forRoot({
+      progressAnimation: 'increasing',
+      progressBar: true,
+      positionClass: 'toast-bottom-right'
+    }),
   ],
   providers: [
     {
@@ -43,6 +49,9 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
       useClass: AuthInterceptorService,
       multi: true
     }
+  ],
+  entryComponents: [
+    AlertComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -21,4 +21,23 @@
       opacity: 1;
     }
   }
+
+  .dropdown-menu {
+
+    li {
+      margin: 2px 0;
+
+      &:hover {
+        background-color: #e6e6e6;
+      }
+    }
+
+    a {
+      color: #212529;
+      opacity: 1;
+      cursor: pointer;
+    }
+
+  }
+
 }

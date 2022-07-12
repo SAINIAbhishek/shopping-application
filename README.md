@@ -8,8 +8,25 @@ An angular framework based application that demonstrate the functionalities of t
 
 ## Topics
 - Bootstrap
-- Authentication (in the environment file replace the `firebaseApiKey` with your own to run it locally)
+- Authentication
 - NgRx (https://ngrx.io/) (https://github.com/ngrx/platform/tree/master/projects)
+
+## Authentication
+
+For handling the Login and Sign up form we are using Template Driven approach.
+<br>
+<br>
+Using the `Firebase Database` service to perform authentication, save and fetch data.
+<br>
+<br>
+To set up the Firebase replace these values in the environment file
+`firebaseApiKey, firebaseAuthApi & firebaseDatabaseUrl`.
+<br>
+<br>
+Firebase Auth REST Api: (https://firebase.google.com/docs/reference/rest/auth)
+<br>
+<br> 
+Programmatically load a component to show the error message while logging or singing up.
 
 ## Development server
 

@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 import {ShoppingListComponent} from './shopping-list.component';
 import {ShoppingEditComponent} from './shopping-edit/shopping-edit.component';
+import {AuthGuard} from '../../guards/auth-guard';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {ShoppingEditComponent} from './shopping-edit/shopping-edit.component';
     RouterModule,
     FormsModule,
     RouterModule.forChild([
-      { path: '', component: ShoppingListComponent }
+      { path: '', component: ShoppingListComponent, canActivate: [AuthGuard] }
     ])
   ],
   declarations: [

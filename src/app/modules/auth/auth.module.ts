@@ -8,12 +8,12 @@ import {LoadingSpinnerModule} from "../loading-spinner/loading-spinner.module";
 import {PlaceholderModule} from '../../directives/placeholder/placeholder.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        LoadingSpinnerModule,
-        PlaceholderModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LoadingSpinnerModule,
+    PlaceholderModule
+  ],
 	declarations: [
 		AuthComponent
 	],

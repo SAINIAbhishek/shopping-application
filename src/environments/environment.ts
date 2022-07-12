@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  firebaseApiKey: 'AIzaSyDmlqbiObaop8Iw1OQrjPRMOnVEQosJl60'
+  // firebase Web Api Key of the project
+  firebaseApiKey: 'AIzaSyC7DMd0zzoFzC76im4s7jOQp2OSeg7a90o',
+  // project database url on the firebase, can be found under the Realtime Database section
+  firebaseDatabaseUrl: 'https://shopping-a7f0a-default-rtdb.firebaseio.com/',
+  // firebase rest api endpoints
+  firebaseAuthApi: 'https://identitytoolkit.googleapis.com/v1/accounts:'
 };
 
 /*
