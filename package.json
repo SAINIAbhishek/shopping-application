@@ -31,7 +31,7 @@
     "@ngrx/effects": "^7.4.0",
     "@ngrx/router-store": "^7.4.0",
     "@ngrx/store": "^7.4.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "5.0.0",
     "core-js": "^2.5.4",
     "ngx-toastr": "^8.0.0",
     "rxjs": "~6.3.3",
